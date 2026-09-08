@@ -1,0 +1,278 @@
+.results-screen { display: none; padding: 60px 0 80px; }
+.results-screen.active { display: block; }
+
+.r-header {
+  margin-bottom: 64px;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 20px;
+}
+
+.r-header h2 {
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 8px;
+}
+
+.r-header h2 em { font-style: italic; color: var(--rust); }
+
+.r-header p {
+  font-style: italic;
+  color: var(--ink2);
+  font-size: 1.1rem;
+}
+
+/* Dimension spectrums */
+.dim-block {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--paper2);
+}
+
+.dim-block:last-child { border-bottom: none; }
+
+.dim-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.dim-name-wrap { position: relative; cursor: help; }
+
+.dim-name {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px dashed var(--ink3);
+  padding-bottom: 2px;
+}
+
+.dim-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  min-width: 280px;
+  max-width: 340px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 16px 18px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.55;
+  z-index: 50;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.dim-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 16px;
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+
+.dim-name-wrap:hover .dim-tooltip { visibility: visible; opacity: 1; }
+
+@media (hover: none) {
+  .dim-name-wrap:active .dim-tooltip { visibility: visible; opacity: 1; }
+}
+
+.dim-result-label {
+  font-style: italic;
+  font-size: 15px;
+}
+
+.dim-poles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.dim-poles span {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.dim-track {
+  position: relative;
+  height: 4px;
+  background: var(--paper2);
+}
+
+.dim-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.8s ease;
+}
+
+.dim-marker {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid;
+  background: var(--paper);
+  transform: translate(-50%, -50%);
+  transition: left 0.8s ease;
+}
+
+/* Philosopher cards */
+.section-divider {
+  margin-top: 64px;
+  margin-bottom: 36px;
+  padding-top: 20px;
+  border-top: 3px solid var(--ink);
+}
+
+.section-divider h3 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.5px;
+}
+
+.section-divider .sub {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-top: 4px;
+}
+
+.phil-card {
+  border: 1.5px solid var(--ink);
+  padding: 28px;
+  margin-bottom: 14px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: var(--paper);
+}
+
+.phil-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.phil-rank {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 6px;
+}
+
+.phil-name {
+  font-size: 1.65rem;
+  font-style: italic;
+  margin-bottom: 2px;
+  letter-spacing: -0.5px;
+}
+
+.phil-years {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: var(--ink3);
+  margin-bottom: 10px;
+}
+
+.phil-pct {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: var(--rust);
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.phil-desc {
+  font-size: 0.95rem;
+  color: var(--ink2);
+  line-height: 1.65;
+}
+
+/* Worldview */
+.worldview-box {
+  background: var(--paper2);
+  padding: 32px;
+  border-left: 4px solid var(--ink);
+  font-size: 1.05rem;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+.worldview-box p { margin-bottom: 16px; }
+.worldview-box p:last-child { margin-bottom: 0; }
+
+/* Contradictions */
+.contra-card {
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  border: 1.5px solid var(--rust);
+  position: relative;
+  background: var(--paper);
+}
+
+.contra-dims {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 8px;
+}
+
+.contra-text {
+  font-size: 0.95rem;
+  color: var(--ink2);
+  line-height: 1.65;
+}
+
+.no-contradictions {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink3);
+  padding: 24px;
+}
+
+.btn-retake {
+  display: block;
+  margin: 56px auto 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  background: transparent;
+  color: var(--ink3);
+  border: 1.5px solid var(--ink3);
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-retake:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+@media (max-width: 520px) {
+  .phil-card { padding: 20px; }
+  .worldview-box { padding: 22px; }
+  .dim-tooltip { min-width: 220px; max-width: 280px; }
+}
